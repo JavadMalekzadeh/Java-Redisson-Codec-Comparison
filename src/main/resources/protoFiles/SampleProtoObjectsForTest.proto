@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option java_package="com.tosan.redissoncodectest.protoEntities";
+option java_multiple_files=true;
+
+message SampleProtoObjectForTest{
+    double doubleTypeField=1;
+    float floatTypeField=2;
+    int32 intTypeField=3;
+    int64 longTypeField=4;
+    bool boolTrueField=5;
+    bool boolFalseField=6;
+    string stringTypeField=7;
+    repeated ProtoObject listObjectTypeField=8;
+
+}
+message ProtoObject {
+
+    oneof kind {
+      NullValue null_value = 1;
+      double double_value = 2;
+      float float_value=3;
+      string string_value = 4;
+      bool bool_value = 5;
+      int32 int_value=6;
+      int64 long_value=7;
+    }
+  }
+
+  enum NullValue {
+    NULL_VALUE = 0;
+  }
